@@ -160,6 +160,11 @@ module.exports = {
               if (url.includes("img.png")) {
                 return false;
               }
+              
+              // Don't handle images under root-relatve /external_images/
+              if (/^\/external_images\//.test(path)) {
+                return false;
+              }
 
               return true;
             },
